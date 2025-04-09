@@ -5,7 +5,7 @@ DEBUG = FALSE
 
 DIM = 2
 
-COMP = g++
+COMP = cray
 
 BL_NO_FORT = TRUE
 
@@ -20,12 +20,12 @@ MAX_ZONES := 20000
 DEFINES += -DNPTS_MODEL=$(MAX_ZONES)
 
 # programs to be compiled
-EBASE := fconvgrad
+EBASE := fcond
 
 # EOS and network
 EOS_DIR := helmholtz
 
-NETWORK_DIR := nova2
+NETWORK_DIR := nova
 #NETWORK_INPUTS := triple_alpha_plus_o.net
 
 Bpack := ./Make.package
