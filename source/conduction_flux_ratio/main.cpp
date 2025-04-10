@@ -258,7 +258,7 @@ void main_main()
 
             // temperature and pressure with ghost cells
             auto const& rho  = dens_mf.const_array(mfi);
-            auto const& e    = energy_mf.const_array(mfi);
+            auto const& rhoE    = energy_mf.const_array(mfi);
             auto const& p    = pres_mf.const_array(mfi);
             auto const& ux   = ux_mf.const_array(mfi);
             auto const& uy   = uy_mf.const_array(mfi);
@@ -271,7 +271,7 @@ void main_main()
             {
 
                 if (ndims == 2) {
-                    out(i,j,k,0) = e(i,j,k) + p(i,j,k) / rho(i,j,k);
+                    out(i,j,k,0) = rhoE(i,j,k)/rho(i,j,k) + p(i,j,k) / rho(i,j,k);
 
                     Real h_flux_hi = (rho(i+1,j,k) * ux(i+1,j,k) * out(i+1,j,k,0) - rho(i,j,k) * ux(i,j,k) * out(i,j,k,0))/dx[0] \
                                       + (rho(i,j+1,k) * uy(i,j+1,k) * out(i,j+1,k,0) - rho(i,j,k) * uy(i,j,k) * out(i,j,k,0))/dx[1];

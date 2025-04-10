@@ -175,7 +175,7 @@ get_pres_index(const std::vector<std::string>& var_names_pf) {
 inline int
 get_energy_index(const std::vector<std::string>& var_names_pf) {
 
-    auto idx = std::find(var_names_pf.cbegin(), var_names_pf.cend(), "eint_e");
+    auto idx = std::find(var_names_pf.cbegin(), var_names_pf.cend(), "total_energy_density");
     if (idx == var_names_pf.cend()) {
         amrex::Error("Error: could not find the enthalpy");
     }
